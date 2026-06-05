@@ -1,7 +1,7 @@
 # webview-performance Specification
 
 ## Purpose
-TBD - created by archiving change prd-v13-optimization. Update Purpose after archive.
+定义 WebView 性能审查规则，覆盖异步初始化、JS Bridge 频率控制、生命周期销毁和离线缓存等场景。对应 PRD §9.11。
 ## Requirements
 ### Requirement: WebView 初始化异步
 审查 SHALL 检测 WebView 首次初始化是否在后台线程或预热阶段完成，避免主线程阻塞。

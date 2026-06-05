@@ -1,7 +1,7 @@
 # external-rules Specification
 
 ## Purpose
-TBD - created by archiving change prd-v13-optimization. Update Purpose after archive.
+定义外置规则的发现、加载、覆盖机制。Skill 采用双层规则模型（内置 + 外置），项目可通过 `.android-performance-cr/custom-rules.md` 和 `overrides.md` 定制审查行为。对应 PRD §3.5。
 ## Requirements
 ### Requirement: 项目级外置规则发现与加载
 Skill 启动时 SHALL 按优先级顺序发现并加载外置规则文件：
@@ -28,7 +28,7 @@ overrides.md SHALL 支持三种覆盖操作：`disable`（禁用规则）、`ove
 - **THEN** 该规则与内置规则同权重参与审查，ID 冲突时以项目规则优先
 
 ### Requirement: 外置规则格式兼容
-外置规则文件 SHALL 采用与 §10 同构的 Markdown 表格格式（七列：ID / 等级 / 检查项 / 反例 / 正例 / 判定 / 参考工具）。
+外置规则文件 SHALL 采用与 §9 同构的 Markdown 表格格式（七列：ID / 等级 / 检查项 / 反例 / 正例 / 判定 / 参考工具）。
 
 #### Scenario: 格式不匹配的规则
 - **WHEN** 外置规则表格缺少必填列

@@ -1,7 +1,7 @@
 # output-format Specification
 
 ## Purpose
-定义 AI Code Review 的 Markdown 报告格式，当前面向本地 Agent 使用。流水线触发通道内容已移入 §13 后期展望。
+定义 AI Code Review 的 Markdown 报告格式，当前面向本地 Agent 使用。流水线触发通道内容已移入 §10 后期展望。
 
 ## Requirements
 

@@ -6,7 +6,7 @@
 ## Requirements
 
 ### Requirement: 工具速查卡覆盖核心性能工具
-§7.4 工具使用速查卡 SHALL 覆盖以下 9 个核心性能分析工具：StrictMode、Systrace、Perfetto、LeakCanary、Memory Profiler（Android Studio）、Battery Historian、APK Analyzer、Database Inspector、Network Profiler。
+§7.2 工具使用速查卡 SHALL 覆盖以下 9 个核心性能分析工具：StrictMode、Systrace、Perfetto、LeakCanary、Memory Profiler（Android Studio）、Battery Historian、APK Analyzer、Database Inspector、Network Profiler。
 
 #### Scenario: 工具数量覆盖
 - **WHEN** Skill 需要引用工具使用说明
@@ -24,14 +24,14 @@
 - **THEN** 速查卡 SHALL 提供：Gradle 依赖声明方式、自动触发说明、泄漏引用路径图解读方法
 
 ### Requirement: 工具与规则的映射关系
-每条规则的「参考工具」列 SHALL 引用 §7.4 中的工具条目。AI Skill 在报告中遇到「需人工/未覆盖」场景时，SHALL 引用对应工具的速查卡建议。
+每条规则的「参考工具」列 SHALL 引用 §7.2 中的工具条目。AI Skill 在报告中遇到「需人工/未覆盖」场景时，SHALL 引用对应工具的速查卡建议。
 
 #### Scenario: 盲区场景的工具引用
 - **WHEN** 审查遇到 Native 内存分配（JNI 场景）
 - **THEN** Skill SHALL 在报告中引用 Perfetto Heap Profile 和 MAT Native 堆分析条目
 
 ### Requirement: 工具速查卡覆盖 Compose Compiler Metrics
-§7.4 工具使用速查卡 SHALL 包含 Compose Compiler Metrics 工具条目，帮助定位 Compose 规则中的不稳定性参数和重组统计。
+§7.2 工具使用速查卡 SHALL 包含 Compose Compiler Metrics 工具条目，帮助定位 Compose 规则中的不稳定性参数和重组统计。
 
 #### Scenario: Compose Compiler Metrics 可参考
 - **WHEN** Skill 审查 Compose 代码遇到 @Stable/@Immutable 检查

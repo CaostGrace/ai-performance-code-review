@@ -1,7 +1,7 @@
 # known-limitations Specification
 
 ## Purpose
-TBD - created by archiving change prd-v13-optimization. Update Purpose after archive.
+定义静态 diff 审查的固有盲区及处理原则。对应 PRD §3.7 已知限制与盲区，覆盖 Native 内存、JNI、反射、动态代理等 9 类无法静态检测的场景。AI 遇到盲区时应输出「需人工」而非臆造 P0。
 ## Requirements
 ### Requirement: 静态审查盲区声明
 审查报告 SHALL 在「未覆盖/需人工」部分注明已知的限制类型，当代码变更涉及 Native 内存、JNI、反射、动态代理、第三方 SDK 内部等 9 类盲区时。
