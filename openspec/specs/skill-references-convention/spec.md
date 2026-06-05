@@ -16,3 +16,10 @@ SKILL.md SHALL 在审查流程中包含对 `references/tools.md` 的按需加载
 #### Scenario: 按需加载 tools
 - **WHEN** AI 审查发现需要建议验证工具
 - **THEN** SKILL.md 中的流程指令 SHALL 引导读取 `references/tools.md`
+
+### Requirement: references/ 目录包含外置规则教程
+Skill 的 `references/` 目录 SHALL 包含 `external-rules-guide.md`，与 `tools.md` 并列。
+
+#### Scenario: 教程文件存在
+- **WHEN** 查看 Skill 的 `references/` 目录
+- **THEN** SHALL 包含 `external-rules-guide.md` 文件
