@@ -14,6 +14,7 @@ metadata:
 
 - **自动模式**：直接调用 Skill，未 @ 文件时自动获取 `git diff`（已暂存 + 未暂存）
 - **手动模式**：@ 指定文件或目录，仅审查指定范围
+- **commit 模式**：输入 commit hash（7-40 位 hex 字符串如 `a1b2c3d`），执行 `git show <hash>` 审查该提交的变更。hash 无效时提示并终止。
 
 ### 外置规则帮助
 
@@ -42,8 +43,11 @@ metadata:
 
 ### 第一步：确定输入范围并预扫描
 
-1. 若用户 @ 了文件 → 审查指定文件；否则执行 `git diff` 获取变更集
-2. 若 `git diff` 为空 → 提示"无代码变更可审查"，终止
+1. 输入优先级判断：
+   - 若用户 @ 了文件/目录 → 审查指定文件（最高优先级）
+   - 若用户输入匹配 `^[0-9a-f]{7,40}$`（hex commit hash）→ 执行 `git show <hash>` 获取变更集。若 hash 无效，提示"无效的 commit hash: <hash>"并终止
+   - 否则 → 执行 `git diff` 获取未提交变更集
+2. 若变更集为空 → 提示"无代码变更可审查"，终止
 3. 对每个变更文件执行**关键字预扫描**，识别：
    - **语言体系标记**（仅决定是否加载 UI 专项规则）：含 `@Composable` / `Composable` → Compose；含 `RecyclerView` / `findViewById` / `onCreateViewHolder` → View。两者都不含 → 不加载 UI 专项规则；两者都含 → 同时加载
    - **路径特征**：匹配 §6.1 路径启发式规则（决定加载哪些维度规则，独立于语言体系标记）
@@ -122,10 +126,11 @@ overrides.md 支持：`disable`（禁用规则）、`override`（仅改变等级
 ```markdown
 ## Android 性能 CR 摘要
 
-- **改动类型**：（AI 根据变更文件推断）
+- **改动类型**：（AI 根据变更文件推断；commit 模式下标注 commit review）
+- **Commit**：（仅 commit 模式）`<hash>` — `<message>` (author)
 - **触发通道**：`local-agent`
 - **AI 模型/版本**：（由调用方注入）
-- **扫描范围**：full / reduced（注明依据）
+- **扫描范围**：full / reduced / single commit（注明依据）
 - **已查维度**：（列出本次加载的维度文件）
 - **审查耗时**：（秒）
 - **合入建议**：通过 / 修复后合入 / 阻塞（存在未解决 P0）
