@@ -41,12 +41,13 @@ android-performance-cr/
 │   ├── observability.md      # §9.10 OBS-01~OBS-04
 │   ├── webview.md            # §9.11 WV-01~WV-04
 │   └── architecture.md       # §9.12 ARCH-01~ARCH-04
-└── tools.md                  # §7 工具速查卡（按需引用）
+├── references/
+│   └── tools.md              # §7 工具速查卡（按需引用）
 ```
 
 - `_must-check.md` 用 `_` 前缀排在文件列表第一位，加载顺序自然优先
 - 路由逻辑控制在 SKILL.md 内 40 行以内
-- tools.md 不每次加载，仅在建议引用工具时按需读取
+- tools.md 不每次加载，仅在建议引用工具时按需读取 `references/tools.md`
 
 ### D2: 两层动态路由
 

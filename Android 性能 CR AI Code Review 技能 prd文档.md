@@ -163,12 +163,13 @@ android-performance-cr/
 │   ├── observability.md      # §9.10 可观测性
 │   ├── webview.md            # §9.11 WebView 性能
 │   └── architecture.md       # §9.12 架构与模块化
-└── tools.md                  # §7 工具速查卡（按需引用）
+└── references/
+    └── tools.md              # §7 工具速查卡（按需引用）
 ```
 
 - **SKILL.md** 仅包含路由逻辑和输出模板，不包含规则清单
 - **`_must-check.md`** 使用 `_` 前缀确保在文件列表中排第一位，优先加载
-- **tools.md** 不每次加载，仅在 AI 需要引用工具建议时按需读取
+- **`references/tools.md`** 不每次加载，仅在 AI 需要引用工具建议时按需读取
 
 ### 3.5 规则加载机制：动态路由 + 外置规则
 

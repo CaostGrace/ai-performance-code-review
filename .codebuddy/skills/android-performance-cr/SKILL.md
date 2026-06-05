@@ -1,3 +1,11 @@
+---
+name: android-performance-cr
+description: 对 Android 代码变更（Java/Kotlin）进行静态性能审查，覆盖主线程、启动、UI 渲染、内存、网络、磁盘 I/O、后台电量、协程线程、包体依赖、可观测性、WebView、架构共 12 个维度，81 条规则。
+metadata:
+  author: 廖兵
+  version: 0.0.1
+---
+
 # Android 性能 AI Code Review
 
 本 Skill 对 Android 代码变更（Java/Kotlin）进行静态性能审查，覆盖主线程、启动、UI 渲染、内存、网络、磁盘 I/O、后台电量、协程线程、包体依赖、可观测性、WebView、架构共 12 个维度，81 条规则。
@@ -72,6 +80,8 @@ overrides.md 支持：`disable`（禁用规则）、`override`（仅改变等级
 - Native 内存分配（JNI malloc/new）、JNI 调用耗时、反射调用
 - 动态代理/AOP、运行时配置变化、第三方 SDK 内部行为
 - 线程调度实际分布、硬件相关性能、ProGuard/R8 实际效果
+
+**工具建议**：在发现项的「建议」列或「未覆盖/需人工」中需要引用验证工具时，读取 `references/tools.md` 获取对应工具的安装方式、命令和输出解读。
 
 ### 第五步：P0 清零与 OBS-01
 
