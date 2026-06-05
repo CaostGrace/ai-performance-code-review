@@ -1,7 +1,7 @@
 # review-quality-feedback Specification
 
 ## Purpose
-TBD - created by archiving change prd-v13-optimization. Update Purpose after archive.
+定义 AI 性能审查的质量保障与反馈闭环机制，包括误报标记、漏报回注、审查校准与一致性度量。**目标阶段：Phase 3（指标看板聚合上线后）**，依赖系统中已累积足够审查报告与 Reviewer 反馈数据。
 ## Requirements
 ### Requirement: 误报反馈标记
 Reviewer SHALL 能够通过 `#false-positive` 标签标记 AI 审查的误报项，标签后跟规则 ID。

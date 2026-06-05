@@ -1,7 +1,7 @@
 # review-sla Specification
 
 ## Purpose
-TBD - created by archiving change prd-v13-optimization. Update Purpose after archive.
+定义流水线审查的 SLA 参数：超时保护、大 PR 降级、文件分段、并发限制。**目标阶段：Phase 2（CI 门禁上线后）**，依赖流水线已集成并开始解析 Markdown 报告。
 ## Requirements
 ### Requirement: 审查超时保护
 通道 A 流水线审查 SHALL 设置 300 秒超时。超时后 SHALL 立即产出已完成的 P0 发现项，并在报告中标注 `partial` 及遗漏维度清单。
