@@ -1,5 +1,5 @@
 # Purpose
-定义 Skill 的双输入模式：自动 git diff 和手动 @ 文件。
+定义 Skill 的三种输入模式：自动 git diff、手动 @ 文件和 commit hash。
 
 ## Requirements
 
@@ -27,3 +27,25 @@
 #### Scenario: 行号格式
 - **WHEN** 发现项在 `FooActivity.kt` 第 42 行
 - **THEN** 报告中 SHALL 标注 `FooActivity.kt:42`
+
+### Requirement: commit hash 输入模式
+Skill SHALL 支持通过 commit hash 作为审查输入。当用户输入匹配 7-40 位 hex 字符串且非 @ 文件路径时，SHALL 执行 `git show <hash>` 获取该 commit 的变更集进行审查。
+
+#### Scenario: 有效 hash 审查
+- **WHEN** 用户输入 hex commit hash
+- **THEN** Skill SHALL 执行 `git show <hash>`，走标准审查流程
+
+#### Scenario: 无效 hash
+- **WHEN** 输入的 hex 字符串对应无效 commit
+- **THEN** Skill SHALL 提示"无效的 commit hash"并终止
+
+#### Scenario: hash 与 @ 文件共存
+- **WHEN** 用户同时输入 hash 和 @ 文件
+- **THEN** @ 文件优先级更高，忽略 hash
+
+### Requirement: commit 模式报告标注
+commit 审查模式下，报告 SHALL 在摘要中标注 commit hash、message 和 author。
+
+#### Scenario: 报告含 commit 信息
+- **WHEN** 审查一个有效 commit
+- **THEN** 报告摘要 SHALL 包含「Commit: `<hash>` — `<message>` (author)」行
